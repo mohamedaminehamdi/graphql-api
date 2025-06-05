@@ -1,0 +1,32 @@
+{
+  "name": "fullstack-apollo-express-psql-practice",
+  "version": "1.0.0",
+  "description": "A full stack project that uses the PERN (PostgreSQL, Express, React, Node) stack, along with GraphQL and Apollo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["GraphQL", "API", "Authorization", "Authentication", "jsonwebtoken"],
+  "author": "Ali Raza",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "apollo-server-express": "^3.12.0",
+    "bcryptjs": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-resolvers": "^0.4.2",
+    "graphql-upload": "^16.0.2",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.10.0",
+    "sequelize": "^6.29.2",
+    "uuid": "^9.0.0"
+  }
+}
