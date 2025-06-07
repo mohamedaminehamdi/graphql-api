@@ -23,6 +23,14 @@ export default gql`
         updateUser(id: ID!, input: UserInput!): User!
         deleteUser(id: ID!): Boolean!
     }
+
+    input UserInput {
+        firstName: String!
+        lastName: String!
+        email: String!
+        password: String!
+        role: String
+    }
     
     type Token {
         token: String!
