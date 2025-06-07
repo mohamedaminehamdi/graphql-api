@@ -51,5 +51,49 @@ export default {
 
             return { token: createToken(user, secret, '30m') };
         },
+        
+        createUser: async (parent, { input }, { User }) => {
+            const existing = await User.findOne({ where: { email: input.email } });
+            if (existing) {
+                throw new UserInputError('Email already in use');
+            }
+            return await User.create(input);
+        },
+
+       
+        updateUser: combineResolvers(
+            isAuthenticated,
+            async (parent, { id, input }, { User, me }) => {
+                if (me.id !== parseInt(id) && me.role !== 'ADMIN') {
+                    throw new AuthenticationError('Not authorized');
+                }
+
+                const user = await User.findByPk(id);
+                if (!user) {
+                    throw new UserInputError('User not found');
+                }
+
+                await user.update(input);
+                return user;
+            }
+        ),
+
+       
+        deleteUser: combineResolvers(
+            isAuthenticated,
+            async (parent, { id }, { User, me }) => {
+                if (me.id !== parseInt(id) && me.role !== 'ADMIN') {
+                    throw new AuthenticationError('Not authorized');
+                }
+
+                const user = await User.findByPk(id);
+                if (!user) {
+                    throw new UserInputError('User not found');
+                }
+
+                await user.destroy();
+                return true;
+            }
+        ),
     },
 };
