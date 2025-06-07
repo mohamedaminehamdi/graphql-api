@@ -8,8 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["GraphQL", "API", "Authorization", "Authentication", "jsonwebtoken"],
-  "author": "Ali Raza",
-  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "nodemon": "^2.0.21"
@@ -17,7 +15,7 @@
   "dependencies": {
     "apollo-server": "^3.12.0",
     "apollo-server-express": "^3.12.0",
-    "bcryptjs": "^5.1.0",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
